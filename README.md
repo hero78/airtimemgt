@@ -50,7 +50,10 @@ curl -X POST -H "Content-Type: application/json" -d '{
 To log in, you can use the following cURL command:
 
 ```bash
-curl -u user:password http://localhost:8080/login
+curl -X POST -H "Content-Type: application/json" -d '{
+  "username": "user",
+  "password": "password"
+}' http://localhost:8080/login
 ```
 
 ## API Documentation

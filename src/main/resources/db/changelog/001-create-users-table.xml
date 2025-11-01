@@ -16,9 +16,6 @@
             <column name="password" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="role" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
         </createTable>
     </changeSet>
 
@@ -26,12 +23,10 @@
         <insert tableName="users">
             <column name="username" value="user"/>
             <column name="password" value="{noop}password"/>
-            <column name="role" value="USER"/>
         </insert>
         <insert tableName="users">
             <column name="username" value="admin"/>
             <column name="password" value="{noop}password"/>
-            <column name="role" value="ADMIN"/>
         </insert>
     </changeSet>
 

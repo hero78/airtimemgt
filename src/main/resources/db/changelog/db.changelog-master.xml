@@ -7,5 +7,7 @@
 
     <include file="001-create-users-table.xml" relativeToChangelogFile="true"/>
     <include file="002-create-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="003-create-user-roles-table.xml" relativeToChangelogFile="true"/>
+    <include file="004-associate-users-with-roles.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
