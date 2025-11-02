@@ -26,9 +26,10 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/login", "/users", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/api/serial-numbers/**").permitAll()
+                                .requestMatchers("/login", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                                 .anyRequest().authenticated()
                 )
+                .httpBasic(httpBasic -> {})
                 .userDetailsService(jpaUserDetailsService)
                 .headers(headers -> headers.frameOptions().sameOrigin())
                 .csrf(csrf -> csrf.disable());
