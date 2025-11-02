@@ -26,7 +26,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/login", "/users", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                                .requestMatchers("/login", "/users", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/api/serial-numbers/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .userDetailsService(jpaUserDetailsService)

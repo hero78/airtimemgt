@@ -9,5 +9,9 @@
     <include file="002-create-roles-table.xml" relativeToChangelogFile="true"/>
     <include file="003-create-user-roles-table.xml" relativeToChangelogFile="true"/>
     <include file="004-associate-users-with-roles.xml" relativeToChangelogFile="true"/>
+    <include file="005-create-distributors-table.xml" relativeToChangelogFile="true"/>
+    <include file="006-create-serial-numbers-table.xml" relativeToChangelogFile="true"/>
+    <include file="007-populate-distributors-table.xml" relativeToChangelogFile="true"/>
+    <include file="008-add-max-serial-numbers-to-distributors.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
