@@ -55,7 +55,7 @@ curl -X POST -H "Content-Type: application/json" -d '{
   "password": "password"
 }' http://localhost:8080/login
 ```
-
+http://localhost:8080/api/serial-numbers?distributorId=1&status=ACTIVE
 ## API Documentation
 
 The API documentation is available through Swagger UI at `http://localhost:8080/swagger-ui.html`.

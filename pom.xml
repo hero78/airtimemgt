@@ -40,6 +40,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jooq</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
@@ -81,6 +85,38 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.jooq</groupId>
+				<artifactId>jooq-codegen-maven</artifactId>
+				<version>3.18.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<jdbc>
+						<driver>org.mariadb.jdbc.Driver</driver>
+						<url>jdbc:mariadb://localhost:3318/airtime_manager</url>
+						<user>root</user>
+						<password>mysql</password>
+					</jdbc>
+					<generator>
+						<database>
+							<name>org.jooq.meta.mariadb.MariaDBDatabase</name>
+							<includes>.*</includes>
+							<excludes></excludes>
+							<inputSchema>airtime_manager</inputSchema>
+						</database>
+						<target>
+							<packageName>com.example.airtimemanagement.jooq</packageName>
+							<directory>src/main/java</directory>
+						</target>
+					</generator>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
