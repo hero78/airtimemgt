@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface SerialNumberService {
     List<SerialNumber> generateSerialNumbers(Long distributorId, int count);
+    SerialNumber useSerialNumber(String serialNumber, Long distributorId);
 }

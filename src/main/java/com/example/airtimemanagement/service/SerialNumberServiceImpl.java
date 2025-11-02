@@ -46,6 +46,24 @@ public class SerialNumberServiceImpl implements SerialNumberService {
         return serialNumberRepository.saveAll(serialNumbers);
     }
 
+    @Transactional
+    @Override
+    public SerialNumber useSerialNumber(String serialNumberValue, Long distributorId) {
+        SerialNumber serialNumber = serialNumberRepository.findBySerialNumber(serialNumberValue)
+                .orElseThrow(() -> new RuntimeException("Serial number not found"));
+
+        if (!serialNumber.getDistributor().getId().equals(distributorId)) {
+            throw new RuntimeException("Serial number does not belong to this distributor");
+        }
+
+        if (serialNumber.getStatus() != SerialNumberStatus.ACTIVE) {
+            throw new RuntimeException("Serial number is not active");
+        }
+
+        serialNumber.setStatus(SerialNumberStatus.USED);
+        return serialNumberRepository.save(serialNumber);
+    }
+
     private String generateUniqueSerialNumber(Distributor distributor) {
         // Encode region and distributor information into the serial number
         String regionCode = distributor.getRegion().name().substring(0, 3);
